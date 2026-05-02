@@ -1,4 +1,5 @@
 import { useState } from 'react';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
 function UploadZone() {
   const [file, setFile] = useState(null);
@@ -24,10 +25,8 @@ function UploadZone() {
     const formData = new FormData();
     formData.append('file', file);
 
-    const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
-
     try {
-      const response = await fetch('${API_BASE_URL}/api/analyze', {
+      const response = await fetch(`${API_BASE_URL}/api/analyze`, {
         method: 'POST',
         body: formData,
       });
