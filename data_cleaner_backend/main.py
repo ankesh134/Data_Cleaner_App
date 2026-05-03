@@ -28,11 +28,13 @@ app = FastAPI(title="Data Cleaner API", version="1.0.0")
 
 # CORS — allow all origins (fine for local dev)
 app.add_middleware(
+    app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
+)
 )
 
 
