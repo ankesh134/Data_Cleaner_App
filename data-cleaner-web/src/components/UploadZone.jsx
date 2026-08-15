@@ -54,8 +54,8 @@ function UploadZone() {
     formData.append('file', file);
 
     try {
-      const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
-      const response = await fetch(`${API_URL}/api/analyze`, {
+      const API_URL = 'https://data-cleaner-app-42b5.onrender.com';
+      const response = await fetch(`${API_URL}/api/clean`, {
         method: 'POST',
         body: formData,
       });
